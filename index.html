@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logo Design Brief</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            width: 90%;
+            max-width: 600px;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            background: linear-gradient(to right, gray 50%, #ffcc00 50%);
+            color: white;
+            border-radius: 8px 8px 0 0;
+            text-align: center;
+        }
+        .logo {
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .client-type {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            padding: 10px 0;
+        }
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 10px;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .save-pdf-btn {
+            width: 100%;
+            padding: 10px;
+            margin-top: 20px;
+            background-color: #ffcc00;
+            color: black;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .save-pdf-btn:hover {
+            background-color: #e6b800;
+        }
+        @media (max-width: 480px) {
+            .header {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container" id="logo-design-brief">
+    <div class="header">
+        <div class="logo">DESIGN<br><span style="font-size:24px; font-weight:bold;">BRIEF</span></div>
+        <div>Fares Hossam</div>
+    </div>
+
+    <label>Client Type:</label>
+    <div class="client-type">
+        <input type="radio" id="old" name="client_type" value="Current Client">
+        <label for="current">Current Client - عميل حالي</label>
+        <input type="radio" id="new" name="client_type" value="New Client">
+        <label for="new">New Client - عميل جديد</label>
+    </div>
+
+    <label for="name_client">Client Name - اسم العميل *</label>
+    <input type="text" id="name_client" required>
+
+    <label for="name_company">Combany Name - اسم الشركه</label>
+    <input type="text" id="name_company">
+
+    <label for="mobile">Mobile Number - رقم الهاتف *</label>
+    <input type="text" id="mobile" required>
+
+    <label for="email">E-mail -  البريد الالكتروني </label>
+    <input type="email" id="email">
+
+    <label for="project_name">Project Name - اسم المشروع *</label>
+    <input type="text" id="project_name" required>
+
+    <label for="about_project">About Order - عن الطلب</label>
+    <textarea id="about_project" rows="4"></textarea>
+
+    <label for="project_type">Project Type ( logo / poster ) - نوع المشروع *</label>
+    <input type="text" id="project_type" required>
+
+    <label for="favorite_colors">Favorite Colors - الألوان المفضله</label>
+    <input type="text" id="favorite_colors">
+
+    <button class="save-pdf-btn" id="saveAsPdf">Save as PDF</button>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
+<script>
+    function saveAsPDF() {
+        const element = document.getElementById('logo-design-brief');
+        const clientName = document.getElementById('name_client').value || 'logo_design_brief';
+        const opt = {
+            margin: 0.5,
+            filename: `${clientName}_logo_design_brief.pdf`,
+            image: { type: 'jpeg', quality: 0.98 },
+            html2canvas: { scale: 2 },
+            jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+        };
+        html2pdf().from(element).set(opt).save();
+    }
+
+    document.getElementById('saveAsPdf').addEventListener('click', saveAsPDF);
+</script>
+
+</body>
+</html>
