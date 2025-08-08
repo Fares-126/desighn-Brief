@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fares' Portfolio</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .profile {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+
+    .profile-img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #0077cc;
+    }
+
+    .profile-info {
+      flex: 1;
+    }
+
+    .profile-info h1 {
+      font-size: 2em;
+      margin-bottom: 10px;
+    }
+
+    .profile-info p {
+      font-size: 1.1em;
+      color: #555;
+    }
+
+    .nav-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-bottom: 30px;
+    }
+
+    .nav-buttons button {
+      flex: 1;
+      min-width: 120px;
+      padding: 10px 20px;
+      font-size: 1em;
+      border: none;
+      border-radius: 5px;
+      background-color: #0077cc;
+      color: white;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .nav-buttons button:hover {
+      background-color: #005fa3;
+    }
+
+    .contact-info, .social-links {
+      margin-bottom: 20px;
+    }
+
+    .contact-info h2, .social-links h2 {
+      margin-bottom: 10px;
+      font-size: 1.5em;
+      color: #0077cc;
+    }
+
+    .contact-info p, .social-links a {
+      font-size: 1em;
+      color: #0000EE;
+      text-decoration: none;
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .social-links a:hover {
+      text-decoration: underline;
+    }
+
+    .cv-section {
+      margin-top: 30px;
+    }
+
+    .cv-section h2 {
+      font-size: 1.5em;
+      color: #0077cc;
+      margin-bottom: 10px;
+    }
+
+    .cv-button {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #0077cc;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      margin-bottom: 20px;
+    }
+
+    .cv-button:hover {
+      background-color: #005fa3;
+    }
+
+    iframe {
+      width: 100%;
+      height: 600px;
+      border: none;
+      border-radius: 5px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    }
+
+    .highlight {
+      box-shadow: 0 0 0 4px #0077cc;
+      transition: box-shadow 0.3s ease;
+      border-radius: 8px;
+    }
+
+    @media (max-width: 600px) {
+      .profile {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .profile-info h1 {
+        font-size: 1.5em;
+      }
+
+      .nav-buttons {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .nav-buttons button {
+        width: 100%;
+      }
+
+      .contact-info, .social-links, .cv-section {
+        text-align: center;
+      }
+      
+
+      iframe {
+        height: 400px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="profile">
+      <img src="profile.jpg" alt="Fares' Profile" class="profile-img" />
+      <div class="profile-info">
+        <h1>Fares Hossam</h1>
+        <p> Developer . Graphic Desighner . Python programer </p>
+      </div>
+    </div>
+
+    <div class="nav-buttons">
+    	<button onclick="document.getElementById('social').scrollIntoView({ behavior: 'smooth' })">Social</button>
+  	<button onclick="window.open('https://drive.google.com/drive/folders/1mCFQeOtzjmth6Du62x3FhpDMgab7g2uJ', '_blank')">My-Projects</button>
+  	<button onclick="document.getElementById('cv').scrollIntoView({ behavior: 'smooth' })">CV</button>
+    </div>
+
+    <div id="contact" class="contact-info">
+  <h2>Contact</h2>
+  <p><a href="mailto:farishosam2010@gmail.com">farishosam2010@gmail.com</a></p>
+  <p><a href="tel:+201119922152">+20-111-9922152</a></p>
+</div>
+
+    <div id="social" class="social-links">
+      <h2>Social Links</h2>
+      <a href="https://www.linkedin.com/in/fares-hossam-8a7a70323?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank">LinkedIn</a>
+      <a href="https://www.facebook.com/share/1ACVPpgLNT/" target="_blank">Facebook</a>
+      <a href="https://www.instagram.com/faris.hosam.9?igsh=Z3gweGJiY2szcTV4" target="_blank">Instagram</a>
+      <a href="https://x.com/E20Fares?t=eB4YEnkOKCO87mIU1P_KaQ&s=09" target="_blank">Twitter(X)</a>
+    </div>
+
+    <div id="cv" class="cv-section">
+      <h2>Curriculum Vitae</h2>
+      <a href="cv.pdf" class="cv-button" download>Download CV</a>
+      <iframe src="cv.pdf"></iframe>
+    </div>
+  </div>
+</body>
+</html>
